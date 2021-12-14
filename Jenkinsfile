@@ -38,11 +38,12 @@ environment {
             sh 'docker push joeltosin/todo-app:${env.BRANCH_NAME}-${env.BUILD_NUMBER}'
         }
     }
-    post 
-    {
+  }
+  post 
+  {
     always {
       sh 'docker logout'
     }
   }
-}
+
 }
