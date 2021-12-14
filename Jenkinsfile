@@ -6,12 +6,12 @@ environment {
   }
  stages {
 
-    stage ('initial cleanup') {
-         steps {
-             dir ("${WORKSPACE}") {
-                 deleteDir()
-             }
-         }
+    stage("Initial cleanup") {
+          steps {
+              dir("${WORKSPACE}") {
+              deleteDir()
+              }
+          }
     }
 
     stage ('Checkout SCM') {
@@ -22,7 +22,7 @@ environment {
 
     stage ('Build docker image') {
         steps {
-             sh 'docker build -t joeltosin/todo-app:${env.BRANCH_NAME}-${env.BUILD_NUMBER} . '
+             sh "docker build -t joeltosin/todo-app:${env.BRANCH_NAME}-${env.BUILD_NUMBER} ."
         }
     }
 
