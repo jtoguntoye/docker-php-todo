@@ -16,7 +16,7 @@ environment {
 
     stage ('Checkout SCM') {
          steps {
-             git branch: 'main', "https://github.com/jtoguntoye/docker-php-todo.git"
+             git branch: 'main', url: "https://github.com/jtoguntoye/docker-php-todo.git"
          }
     }
 
@@ -33,17 +33,16 @@ environment {
         
         }  
     }
-    stage ('Docke push') {
+    stage ('Docker push') {
         steps {
             sh 'docker push joeltosin/todo-app:${env.BRANCH_NAME}-${env.BUILD_NUMBER}'
         }
     }
-
-    post {
+    post 
+    {
     always {
       sh 'docker logout'
     }
   }
-
 }
 }
