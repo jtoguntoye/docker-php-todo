@@ -35,7 +35,7 @@ environment {
     }
     stage ('Docker push') {
         steps {
-            sh 'docker push joeltosin/todo-app:${env.BRANCH_NAME}-${env.BUILD_NUMBER}'
+            sh "docker push joeltosin/todo-app:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
         }
     }
   }
