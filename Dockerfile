@@ -22,9 +22,6 @@ RUN curl -sS https://getcomposer.org/installer |php && mv composer.phar /usr/loc
 # Copy application source files
 COPY . /var/www/html
 
-
-WORKDIR /var/www/html
-RUN mv .env.sample .env
 RUN chown -R www-data:www-data /var/www
 
 EXPOSE 80
