@@ -30,7 +30,7 @@ environment {
     stage ('Start the app')
     {
       steps {
-        sh "docker compose up -d"
+        sh "docker-compose up -d"
       }
     }
 
