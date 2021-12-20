@@ -51,8 +51,8 @@ environment {
       }
     }
 
-    
-  post 
+} 
+    post 
   {
     always {
       sh "docker-compose down"
@@ -60,5 +60,4 @@ environment {
       sh 'docker logout'
     }
   }
-
 }
