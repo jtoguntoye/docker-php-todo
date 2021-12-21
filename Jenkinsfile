@@ -55,7 +55,6 @@ environment {
     post 
   {
     always {
-      sh "docker-compose down"
       sh "docker system prune -af"
       sh 'docker logout'
     }
