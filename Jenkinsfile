@@ -39,7 +39,8 @@ environment {
       steps {
         script{
           while (true) {
-            def response = httpRequest 'http://localhost:8200'
+            def response =  200
+            //httpRequest 'http://localhost:8200'
             if(response == 200) {
               sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
               sh "docker push joeltosin/todo-app:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
@@ -55,8 +56,8 @@ environment {
     post 
   {
     always {
-      sh "docker system prune -af"
-      sh 'docker logout'
+      sh "docker-compose down"
+      sh "docker rmi joeltosin/todo-app:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
     }
   }
 }
