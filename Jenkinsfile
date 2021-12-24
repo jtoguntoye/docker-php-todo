@@ -39,8 +39,7 @@ environment {
       steps {
         script{
           while (true) {
-            def response =  200
-            //httpRequest 'http://localhost:8200'
+            def response =  httpRequest 'http://localhost'
             if(response == 200) {
               sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
               sh "docker push joeltosin/todo-app:${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
